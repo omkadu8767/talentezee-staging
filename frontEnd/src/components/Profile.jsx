@@ -31,12 +31,7 @@ const Profile = ({ user, credits, updateCredits, url }) => {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
       });
-      const userId = user.id;
-      await fetch(`${url}/api/profile`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...profileData, userId }),
-      });
+      
 
       if (response.ok) {
         const data = await response.json();

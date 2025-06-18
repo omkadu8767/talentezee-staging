@@ -9,7 +9,7 @@ exports.createOrUpdateProfile = async (req, res) => {
     }
 
     const updatedProfile = await Profile.findOneAndUpdate(
-      { userId: id },
+      { userId: new mongoose.Types.ObjectId(id) }, 
       { $set: req.body },
       { new: true, upsert: true }
     );

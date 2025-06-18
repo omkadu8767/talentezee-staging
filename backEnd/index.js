@@ -50,5 +50,5 @@ app.use('/api/payment', purchaseRouter);
 app.use('/api/raffle', raffleRouter);
 
 app.listen(PORT, () => {
-  console.log(`Server running...`);
+  console.log(`Server running on ${PORT}`);
 });

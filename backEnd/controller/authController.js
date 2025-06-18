@@ -18,21 +18,23 @@ exports.registerUser = async (req, res) => {
     const newUser = new User({ name, email, password: hashedPassword });
     await newUser.save();
 
-    // ✅ Initialize user stats with default values (important!)
+    // ✅ Initialize user stats (or credits/tickets/etc.)
     await Stat.create({ userId: newUser._id });
 
     const jwtSecret = process.env.JWT_SECRET;
     if (!jwtSecret) {
       throw new Error('JWT_SECRET is not defined');
     }
-    const token = jwt.sign({ id: user._id }, jwtSecret, { expiresIn: '1d' });
+
+    const token = jwt.sign({ id: newUser._id }, jwtSecret, { expiresIn: '1d' });
 
     res.status(201).json({
       user: { id: newUser._id, name: newUser.name, email: newUser.email },
       token
     });
+
   } catch (err) {
-    console.error(err);
+    console.error('Register Error:', err);
     res.status(500).json({ message: 'Server error' });
   }
 };

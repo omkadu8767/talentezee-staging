@@ -3,7 +3,6 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const authRouter = require('./routes/authRouter');
 const Enrollment = require('./models/enrollment');
-const profileRoutes = require('./routes/profileRoutes');
 const dashboardRouter = require('./routes/dashboardRouter');
 const purchaseRouter = require('./routes/purchaseRouter');
 const raffleRouter = require('./routes/raffleRouter');

@@ -31,6 +31,12 @@ const Profile = ({ user, credits, updateCredits, url }) => {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
       });
+      const userId = user.id;
+      await fetch(`${url}/api/profile`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...profileData, userId }),
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -538,41 +544,3 @@ const Profile = ({ user, credits, updateCredits, url }) => {
 };
 
 export default Profile;
-
-/*
-      setProfileData({
-        ...profileData,
-        phone: '+1 (555) 123-4567',
-        location: 'San Francisco, CA',
-        title: 'Software Developer',
-        summary: 'Passionate software developer with 3+ years of experience in full-stack development.',
-        experience: [
-          {
-            id: 1,
-            company: 'TechCorp Inc.',
-            position: 'Frontend Developer',
-            startDate: '2022-01',
-            endDate: 'Present',
-            description: 'Developed responsive web applications using React and Node.js'
-          }
-        ],
-        education: [
-          {
-            id: 1,
-            institution: 'University of Technology',
-            degree: 'Bachelor of Computer Science',
-            startDate: '2018',
-            endDate: '2022'
-          }
-        ],
-        skills: ['JavaScript', 'React', 'Node.js', 'Python', 'SQL'],
-        certifications: [
-          {
-            id: 1,
-            name: 'AWS Certified Developer',
-            issuer: 'Amazon Web Services',
-            date: '2023-06'
-          }
-        ]
-      });
-*/

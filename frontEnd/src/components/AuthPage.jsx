@@ -86,7 +86,7 @@ const AuthPage = ({ onLogin, url}) => {
       });
 
     } catch (err) {
-      console.error('Auth error:', err);
+      isLogin(false);
       if (err.response?.data?.message) {
         setError(err.response.data.message);
       } else {

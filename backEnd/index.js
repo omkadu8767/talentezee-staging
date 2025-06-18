@@ -46,7 +46,6 @@ app.post('/api/enroll', async (req, res) => {
 app.use(express.json());
 app.use('/api/auth', authRouter);
 app.use('/api/user', dashboardRouter);
-app.use('/api/user/profile', profileRoutes);
 app.use('/api/payment', purchaseRouter);
 app.use('/api/raffle', raffleRouter);
 

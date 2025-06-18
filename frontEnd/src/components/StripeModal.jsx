@@ -26,7 +26,7 @@ const CheckoutForm = ({ userId, onClose, setCredits }) => {
       alert(error.message);
     } else {
       try {
-        const res = await fetch(`http://localhost:4000/api/payment/charge`, {
+        const res = await fetch(`https://talentezee-server.onrender.com/api/payment/charge`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

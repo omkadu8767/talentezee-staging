@@ -9,7 +9,7 @@ import AuthPage from './components/AuthPage';
 import './App.css';
 
 function App() {
-  const url = "http://localhost:4000";
+  const url = "https://talentezee-server.onrender.com";
   const [user, setUser] = useState(null);
   const [credits, setCredits] = useState(0);
   const [isLoading, setIsLoading] = useState(true);

@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
   res.json({ success: true, message: 'Welcome to Server API!' });
 });
 
-app.use(cors({ origin: 'http://localhost:5173/' }));
+app.use(cors({ origin: 'https://talentezee-client.vercel.app/' }));
 
 app.use(cors({
   origin: "*", // Allow all origins (for development)
@@ -50,5 +50,5 @@ app.use('/api/payment', purchaseRouter);
 app.use('/api/raffle', raffleRouter);
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Server running...`);
 });

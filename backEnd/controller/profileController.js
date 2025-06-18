@@ -2,11 +2,11 @@ const Profile = require('../models/profile');
 
 exports.createOrUpdateProfile = async (req, res) => {
   try {
-    const { userId } = req.body;
-    if (!userId) return res.status(400).json({ error: 'User ID is required' });
+    const { id } = req.params;
+    if (!id) return res.status(400).json({ error: 'User ID is required' });
 
     const updatedProfile = await Profile.findOneAndUpdate(
-      { userId },
+      { id },
       { $set: req.body },
       { new: true, upsert: true }
     );
@@ -20,10 +20,10 @@ exports.createOrUpdateProfile = async (req, res) => {
 
 exports.getProfile = async (req, res) => {
   try {
-    const { userId } = req.query;
-    if (!userId) return res.status(400).json({ error: 'User ID is required' });
+    const { id } = req.params;
+    if (!id) return res.status(400).json({ error: 'User ID is required' });
 
-    const profile = await Profile.findOne({ userId });
+    const profile = await Profile.findOne({ id });
     if (!profile) return res.status(404).json({ error: 'Profile not found' });
 
     res.status(200).json(profile);

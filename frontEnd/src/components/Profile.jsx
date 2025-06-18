@@ -26,7 +26,7 @@ const Profile = ({ user, credits, updateCredits, url }) => {
   const fetchProfileData = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(`${url}/api/user/profile/${user.id}`, {
+      const response = await fetch(`${url}/api/user/profile/data/${user.id}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -73,7 +73,7 @@ const Profile = ({ user, credits, updateCredits, url }) => {
 
   const handleSave = async () => {
     try {
-      const response = await fetch(`/api/user/profile/${user.id}`, {
+      const response = await fetch(`/api/user/profile/post/${user.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

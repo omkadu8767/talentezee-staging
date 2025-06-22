@@ -61,9 +61,9 @@ The `wrapper/` app includes routes that embed each module via iframe. This allow
 
 
   ## 📫 Submission Info
-GitHub Repo: https://github.com/omkadu/talentezee-staging\
-Staging App: https://talentezee-wrapper.vercel.app/\
-All modules maintain their original structure and behavior.\
+GitHub Repo: https://github.com/omkadu/talentezee-staging \
+Staging App: https://talentezee-wrapper.vercel.app/ \
+All modules maintain their original structure and behavior. \
  This wrapper interface makes it easy to navigate and preview each implementation independently.
 
 🙏
